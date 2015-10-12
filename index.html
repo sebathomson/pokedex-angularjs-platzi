@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="Pokedex">
+<head>
+	<meta charset="UTF-8">
+	<title>Pokedex en AngularJs</title>
+	<meta name="vireport" content="width=divice-width">
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/lib/underscore-min.js"></script>
+	<style>
+		#container {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Pokedex</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">All</a></li>
+					<li><a href="#">Types</a></li>
+					<li><a href="#">Abilities</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="container" class="container-fluid" data-ng-controller="PokemonController">
+		<div class="page-header">
+			<div class="form-group pull-right col-md-3">
+				<input type="text" class="form-control input-sm" placeholder="Search">
+			</div>
+			<h1>Pokedex <small>(All Pokemons)</small></h1>
+		</div>
+
+		<div class="row" data-ng-repeat="pokemons in pokemonGroups">
+			<div class="col-md-3" data-ng-repeat="pokemon in pokemons">
+				<div class="panel panel-default" >
+					<div class="panel-heading">
+						<span class="label label-primary pull-right"># <strong>{{ pokemon.id }}</strong></span>
+						{{ pokemon.name }}
+					</div>
+					<div class="panel-body">
+						<a href="#" class="thumbnail">
+							<img src="assets/img/pokemons/{{ pokemon.name | lowercase }}.jpg" alt="{{ pokemon.name }}" widht="100">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
