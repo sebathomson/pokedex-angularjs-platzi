@@ -19,13 +19,15 @@ function partition(data, n) {
 
 (function () {
 
-	var app = angular.module('Pokedex', []);
+	var app = angular.module('Pokedex', [
+		'Pokedex.filters'
+		]);
 
 	app.controller('PokemonController', [ '$scope', function ($scope) {
 
 		$scope.pokemonGroups = partition( getPokemons(), 4 ) ;
 
-		console.log( $scope.pokemonGroups );
+		// console.log( $scope.pokemonGroups );
 
 	}]);
 

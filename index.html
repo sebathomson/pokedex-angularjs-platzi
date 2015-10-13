@@ -8,11 +8,15 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="assets/js/filters.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/lib/underscore-min.js"></script>
 	<style>
 		#container {
 			margin-top: 50px;
+		}
+		.thumbnail img {
+			height: 100px;
 		}
 	</style>
 </head>
@@ -55,7 +59,7 @@
 					</div>
 					<div class="panel-body">
 						<a href="#" class="thumbnail">
-							<img src="assets/img/pokemons/{{ pokemon.name | lowercase }}.jpg" alt="{{ pokemon.name }}" widht="100">
+							<img src="{{ pokemon.name | imageify }}" alt="{{ pokemon.name }}">
 						</a>
 					</div>
 				</div>
