@@ -26,6 +26,8 @@
 	*/
 	pokemonServices.factory('pokemonService', [ '$http', '$q', '$filter', function ($http, $q, $filter) {
 
+		var normalize = $filter('normalize');
+
 		/**
 		* 
 		* all:
@@ -38,6 +40,60 @@
 
 			$http.get('assets/js/pokemons.json').success(function (data) {
 				deferred.resolve(data);
+			});
+
+			return deferred.promise;
+		}
+
+		/**
+		* 
+		* byType:
+		*
+		* obtiene todos los pokemones que sean del typo = type.
+		* 
+		*/
+		function byType(type) {
+			type         = normalize(type);
+			var deferred = $q.defer();
+
+			all().then(function (data) {
+
+				// .filter: sirve para realizar un filter a los datos.
+				// es de la librería undescore
+				var results = data.filter(function (pokemon) {
+					return pokemon.type.some(function (t) {
+						return normalize(t) === type;
+					});
+				});
+
+				deferred.resolve(results);
+			});
+
+			return deferred.promise;
+		}
+
+		/**
+		* 
+		* byAbility:
+		*
+		* obtiene todos los pokemones que posean la habilidad = ability.
+		* 
+		*/
+		function byAbility(ability) {
+			ability         = normalize(ability);
+			var deferred = $q.defer();
+
+			all().then(function (data) {
+
+				// .filter: sirve para realizar un filter a los datos.
+				// es de la librería undescore
+				var results = data.filter(function (pokemon) {
+					return pokemon.abilities.some(function (t) {
+						return normalize(t) === ability;
+					});
+				});
+
+				deferred.resolve(results);
 			});
 
 			return deferred.promise;
@@ -58,7 +114,9 @@
 
 
 		return {
-			all: all,
+			all:       all,
+			byType:    byType,
+			byAbility: byAbility,
 			partition: partition
 		};
 

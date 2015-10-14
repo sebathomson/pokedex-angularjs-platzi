@@ -26,7 +26,7 @@
 		* Ruta '/': Cuando la ruta sea el home, se mostrará la vista de pokedex.
 		*/
 		$routeProvider.when('/', {
-			templateUrl: 'views/pokedex.html',
+			templateUrl: 'views/list.html',
 			controller: 'PokedexController'
 		});
 
@@ -34,7 +34,7 @@
 		* Ruta '/type/:type': Ruta para ver el pokedex de un tipo de pokemon
 		*/
 		$routeProvider.when('/type/:type', {
-			templateUrl: 'views/pokedex.html',
+			templateUrl: 'views/list.html',
 			controller: 'PokedexController'
 		});
 
@@ -42,7 +42,7 @@
 		* Ruta '/ability/:ability': Ruta para ver el pokedex de un tipo de pokemon
 		*/
 		$routeProvider.when('/ability/:ability', {
-			templateUrl: 'views/pokedex.html',
+			templateUrl: 'views/list.html',
 			controller: 'PokedexController'
 		});
 

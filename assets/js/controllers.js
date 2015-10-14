@@ -28,7 +28,7 @@
 		$scope.pokedexDescription = 'All Pokemons';
 
 		if (type) {
-			$scope.pokedexDescription = "All " + type.toUpperCase() + "'s Pokemons";
+			$scope.pokedexDescription = "All Pokemons to have the " + type.toUpperCase() + " Type";
 
 			pokemonService.byType(type).then(function (data) {
 				$scope.pokemons        = data
