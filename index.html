@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="assets/js/lib/angular-route.min.js"></script>
 	<script src="assets/js/filters.js"></script>
+	<script src="assets/js/services.js"></script>
+	<script src="assets/js/controllers.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/lib/underscore-min.js"></script>
 	<style>
@@ -42,25 +45,52 @@
 			</div>
 		</div>
 	</nav>
-	<div id="container" class="container-fluid" data-ng-controller="PokemonController">
+	<div id="container" class="container-fluid" data-ng-controller="PokedexController">
 		<div class="page-header">
 			<div class="form-group pull-right col-md-3">
 				<input type="text" class="form-control input-sm" placeholder="Search">
 			</div>
-			<h1>Pokedex <small>(All Pokemons)</small></h1>
+			<h1>Pokedex <small>({{ pokedexDescription }})</small></h1>
 		</div>
 
-		<div class="row" data-ng-repeat="pokemons in pokemonGroups">
+		<div class="row" data-ng-repeat="pokemons in pokemonGroupped">
 			<div class="col-md-3" data-ng-repeat="pokemon in pokemons">
 				<div class="panel panel-default" >
 					<div class="panel-heading">
 						<span class="label label-primary pull-right"># <strong>{{ pokemon.id }}</strong></span>
 						{{ pokemon.name }}
 					</div>
-					<div class="panel-body">
-						<a href="#" class="thumbnail">
-							<img src="{{ pokemon.name | imageify }}" alt="{{ pokemon.name }}">
-						</a>
+					<div class="panel-body row-fluid">
+						<div class="col-md-4">
+							<a href="#" class="thumbnail">
+								<img src="{{ pokemon.name | imageify }}" alt="{{ pokemon.name }}">
+							</a>
+						</div>
+						<div class="col-md-8">
+							<table class="table">
+								<tr></tr>
+								<tr>
+									<td><strong>Type(s)</strong></td>
+									<td>
+										<div data-ng-repeat="type in pokemon.type" class="pull-left">
+											<a href="#/type/{{ type | lowercase }}" class="label label-{{ type | colortype }}">
+												{{ type }}
+											</a><span data-ng-hide="{{ $last }}"> </span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Abilities</strong></td>
+									<td>
+										<ul class="list-unstyled">
+										<li data-ng-repeat="ability in pokemon.abilities">
+											<a href="#/ability/{{ ability | normalize }}">{{ ability }}</a>
+										</li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

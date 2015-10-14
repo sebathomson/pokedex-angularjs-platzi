@@ -33,6 +33,7 @@
 			input = input
 			.replace('♀', 'f')
 			.replace('♂', 'm')
+			.replace(' ', '')
 			.replace(/\W+/g, "");
 			
 			return input.toLowerCase();
@@ -51,6 +52,40 @@
 		return function (input) {
 			var url = "assets/img/pokemons/" + $filter('normalize')(input) + ".jpg";
 			return url;
+		};
+	}]);
+
+	/**
+	* 
+	* labeltype: 
+	* filtro para obtener el color del label por tipo.
+	* 
+	*/
+	pokemonFilters.filter('colortype', ['$filter', function ($filter) {
+		return function (input) {
+			input = input.toLowerCase();
+
+			if (input == 'water' || input == 'ice') {
+				return 'info';
+			};
+
+			if (input == 'fire') {
+				return 'danger';
+			};
+
+			if (input == 'psychic' || input == 'poison' || input == 'ghost') {
+				return 'primary';
+			};
+
+			if (input == 'electric') {
+				return 'warning';
+			};
+
+			if (input == 'bug' || input == 'grass' || input == 'poi') {
+				return 'success';
+			};
+
+			return 'default';
 		};
 	}]);
 

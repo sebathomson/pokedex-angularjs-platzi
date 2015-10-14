@@ -1,33 +1,65 @@
-function getPokemons () {
-	return $.ajax({
-		url: 'assets/js/pokemons.json',
-		type: 'GET',
-		dataType: 'JSON',
-		async: false
-	})
-	.done(function(json) {
-		pokemons = json;
-	}).responseJSON;
-}
-
-function partition(data, n) {
-	return _.chain(data).groupBy(function (element, index) {
-		return Math.floor(index / n);
-	}).toArray().value();
-}
-
-
 (function () {
 
 	var app = angular.module('Pokedex', [
-		'Pokedex.filters'
+		'ngRoute',
+		'Pokedex.filters',
+		'Pokedex.controllers',
+		'Pokedex.services'
 		]);
 
-	app.controller('PokemonController', [ '$scope', function ($scope) {
+	/**
+	* 
+	* Inicialización del módulo de servicios.
+	*
+	* @see  https://docs.angularjs.org/guide/module
+	*
+	* Configuration blocks:
+	* 
+	* Get executed during the provider registrations and configuration phase. 
+	* Only providers and constants can be injected into configuration blocks. 
+	* This is to prevent accidental instantiation of services before they have been fully configured.
+	* 
+	*/
+	app.config(['$routeProvider', function ($routeProvider) {
 
-		$scope.pokemonGroups = partition( getPokemons(), 4 ) ;
+		/**
+		* Ruta '/': Cuando la ruta sea el home, se mostrará la vista de pokedex.
+		*/
+		$routeProvider.when('/', {
+			templateUrl: 'views/pokedex.html',
+			controller: 'PokedexController'
+		});
 
-		// console.log( $scope.pokemonGroups );
+		/**
+		* Ruta '/type/:type': Ruta para ver el pokedex de un tipo de pokemon
+		*/
+		$routeProvider.when('/type/:type', {
+			templateUrl: 'views/pokedex.html',
+			controller: 'PokedexController'
+		});
+
+		/**
+		* Ruta '/ability/:ability': Ruta para ver el pokedex de un tipo de pokemon
+		*/
+		$routeProvider.when('/ability/:ability', {
+			templateUrl: 'views/pokedex.html',
+			controller: 'PokedexController'
+		});
+
+		/**
+		* Ruta '/pokemon/:name': Ruta para ver el pokemon
+		*/
+		$routeProvider.when('/pokemon/:name', {
+			templateUrl: 'views/pokemon.html',
+			controller: 'PokemonController'
+		});
+
+		/**
+		* Para todas las demás rutas, redirigir a la del home
+		*/
+		$routeProvider.otherwise({
+			redirectTo: '/'
+		});
 
 	}]);
 
