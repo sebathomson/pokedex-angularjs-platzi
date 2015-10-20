@@ -18,9 +18,9 @@
 
 	/**
 	* 
-	* pokemonControllers: 
+	* PokedexController: 
 	* 
-	* Controlador que maneja el pokedex completo, por tipo y por habilidades.
+	* Controlador que maneja el pokedex completo, por tipo, por habilidades y el buscador.
 	*/
 	pokemonControllers.controller('PokedexController', [ '$scope', '$routeParams', 'pokemonService', function ($scope, $routeParams, pokemonService) {
 		var type                  = $routeParams.type;
@@ -50,6 +50,32 @@
 
 		}
 
+		$scope.filterByQuery = function (keyEvent) {
+			if (keyEvent.which === 13) {
+				$scope.pokedexDescription = "All Pokemons to have the '" + $scope.query + "' keyword";
+
+				pokemonService.byQuery($scope.query).then(function (data) {
+					$scope.pokemons        = data;
+					$scope.pokemonGroupped = pokemonService.partition(data, 4);
+				});
+			}
+		}
+
+	}]);
+
+	/**
+	* 
+	* PokemonController: 
+	* 
+	* Controlador que maneja el la vista de los pokemones.
+	*/
+	pokemonControllers.controller('PokemonController', [ '$scope', '$routeParams', 'pokemonService', function ($scope, $routeParams, pokemonService) {
+		var name                  = $routeParams.name;
+
+		pokemonService.byName(name).then(function (data) {
+			$scope.pokemon            = data;
+			$scope.pokedexDescription = data.name;
+		});
 	}]);
 
 })();

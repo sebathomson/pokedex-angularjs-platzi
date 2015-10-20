@@ -1,14 +1,10 @@
 # pokedex-angularjs-platzi
 
-Un simple Pokedex construido con AngularJS.
+Un simple Pokedex construido con AngularJS para el curso de AngularJs de Platzi.
 
 ![Pokedex Demo](https://raw.githubusercontent.com/sebathomson/pokedex-angularjs-platzi/master/assets/img/pokedex-demo.png)
 
 [**DEMO**](http://sebathomson.cl/projects/pokedex-angularjs-platzi/)
-
-## TODO
-* [ ] Pokemon View
-* [ ] Pokemon Search 
 
 ### Legal
 

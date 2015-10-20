@@ -101,6 +101,57 @@
 
 		/**
 		* 
+		* byQuery:
+		*
+		* obtiene todos los pokemones que coinciden con la búsqueda.
+		* 
+		*/
+		function byQuery(query) {
+			query        = normalize(query);
+			var deferred = $q.defer();
+
+			all().then(function (data) {
+				var results = data.filter(function (pokemon) {
+					return normalize(pokemon.name).indexOf(query) > -1;
+				});
+
+				deferred.resolve(results);
+
+			});
+
+			return deferred.promise;
+		}
+
+		/**
+		* 
+		* byName:
+		*
+		* obtiene los datos del pokemon.
+		* 
+		*/
+		function byName(name) {
+			name = normalize(name);
+			var deferred = $q.defer();
+
+			all().then(function (data) {
+				var results = data.filter(function (pokemon) {
+					return normalize(pokemon.name) === name;
+				});
+
+				if (results.length > 0) {
+					deferred.resolve(results[0]);
+				} else {
+					deferred.reject();
+				}
+			});
+
+			return deferred.promise;
+		}
+
+
+
+		/**
+		* 
 		* partition:
 		*
 		* divide un array de datos (data) en grupos de 'n'.
@@ -117,6 +168,8 @@
 			all:       all,
 			byType:    byType,
 			byAbility: byAbility,
+			byQuery:   byQuery,
+			byName:    byName,
 			partition: partition
 		};
 
