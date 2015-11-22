@@ -8,7 +8,6 @@ Un simple Pokedex construido con AngularJS para el curso de AngularJs de Platzi.
 
 ## TODO
 * [ ] Generar Link a este Repo
-* [ ] Eliminar los errores que se ven en la consola al cargar la pag.
 * [ ] Mejorar el manejo de las evoluciones de los pokemons
 
 ### Legal

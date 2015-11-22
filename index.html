@@ -12,6 +12,7 @@
 	<script src="assets/js/filters.js"></script>
 	<script src="assets/js/services.js"></script>
 	<script src="assets/js/controllers.js"></script>
+	<script src="assets/js/directives.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/lib/underscore-min.js"></script>
 	<style>
@@ -33,8 +34,12 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand">
+				<a class="navbar-brand cols-md-12">
+					<div class="pull-right">
+						<iframe src="https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+					</div>
 					<img alt="Brand" src="assets/img/pokeball.png">
+					<a href="#/" class="navbar-brand">Pokedex</a>
 				</a>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
@@ -42,12 +47,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#/" class="navbar-brand">Pokedex</a>
 			</div>
 		</div>
 	</nav>
 	<div id="container" class="container-fluid">
-		<div ng-view></div>
+		<div data-ng-view></div>
 	</div>
 </body>
 </html>

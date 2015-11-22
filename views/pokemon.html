@@ -15,7 +15,7 @@
 						<div class="panel-heading">Picture</div>
 						<div class="panel-body">
 							<a href="#/pokemon/{{ pokemon.name | normalize }}" class="thumbnail">
-								<img src="{{ pokemon.name | imageify }}" alt="{{ pokemon.name }}">
+								<pokemon-image></pokemon-image>
 							</a>
 						</div>
 					</div>
@@ -140,11 +140,11 @@
 				Evolutions
 			</div>
 			<div class="panel-body row-fluid">
-				<div class="col-md-4" ng-repeat="subPokemon in pokemon.evolution">
+				<div class="col-md-4" data-ng-repeat="subPokemon in pokemon.evolution">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<a href="#/pokemon/{{ subPokemon | normalize }}" class="thumbnail">
-								<img src="{{ subPokemon | imageify }}" alt="{{ subPokemon }}">
+								<img data-ng-src="{{ subPokemon | imageify }}" alt="{{ subPokemon }}">
 							</a>
 						</div>
 						<div class="panel-footer">

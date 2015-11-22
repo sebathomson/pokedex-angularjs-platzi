@@ -4,7 +4,8 @@
 		'ngRoute',
 		'Pokedex.filters',
 		'Pokedex.controllers',
-		'Pokedex.services'
+		'Pokedex.services',
+		'Pokedex.directives'
 		]);
 
 	/**

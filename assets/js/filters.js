@@ -50,6 +50,10 @@
 	*/
 	pokemonFilters.filter('imageify', ['$filter', function ($filter) {
 		return function (input) {
+			// Aún no logro entender porque hay veces en las que "input" llega undefined. 
+			if (input == undefined) {
+				return '';
+			}
 			var url = "assets/img/pokemons/" + $filter('normalize')(input) + ".jpg";
 			return url;
 		};

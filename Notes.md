@@ -12,3 +12,5 @@ CDN: Content Delivery Network
 - Para hacer funcionar AngularJs siempre hay que usar el ng-app
 
 - Para hacer válido el HTML es recomendable agregar el data- antes de las directivas.
+
+- El data-ng-src ayuda cuando los recursos deben ser cargados por angular y aún no están listos.
