@@ -4,40 +4,37 @@
 	<meta charset="UTF-8">
 	<title>Pokedex en AngularJs</title>
 	<meta name="vireport" content="width=divice-width">
-
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script src="assets/js/lib/angular-route.min.js"></script>
-	<script src="assets/js/filters.js"></script>
-	<script src="assets/js/services.js"></script>
-	<script src="assets/js/controllers.js"></script>
-	<script src="assets/js/directives.js"></script>
-	<script src="assets/js/app.js"></script>
-	<script src="assets/js/lib/underscore-min.js"></script>
 	<style>
 		#container {
 			margin-top: 50px;
 		}
 		.thumbnail img {
 			height: 100px;
+			width: 100px;
 		}
 		.navbar-brand img {
 			height: 20px;
 		}
 		#pokemon .thumbnail img {
 			height: 300px;
+			width: inherit;
 		}
 	</style>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
+			<div class="pull-right" style="margin-top: 15px;">
+				<span>
+					<a class="github-button" href="https://github.com/sebathomson" data-style="mega" aria-label="Follow @sebathomson on GitHub">Follow @sebathomson</a>
+				</span>
+				<span>
+					<a class="github-button" href="https://github.com/sebathomson/pokedex-angularjs-platzi" data-icon="octicon-star" data-style="mega" aria-label="Star sebathomson/pokedex-angularjs-platzi on GitHub">Star</a>
+				</span>
+			</div>
 			<div class="navbar-header">
 				<a class="navbar-brand cols-md-12">
-					<div class="pull-right">
-						<iframe src="https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-					</div>
 					<img alt="Brand" src="assets/img/pokeball.png">
 					<a href="#/" class="navbar-brand">Pokedex</a>
 				</a>
@@ -53,5 +50,16 @@
 	<div id="container" class="container-fluid">
 		<div data-ng-view></div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="assets/js/lib/angular-route.min.js"></script>
+	<script src="assets/js/filters.js"></script>
+	<script src="assets/js/services.js"></script>
+	<script src="assets/js/controllers.js"></script>
+	<script src="assets/js/directives.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/lib/underscore-min.js"></script>
+	<!-- Place this tag right after the last button or just before your close body tag. -->
+	<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>	
 </body>
 </html>

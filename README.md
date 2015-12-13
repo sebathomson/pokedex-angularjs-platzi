@@ -6,10 +6,6 @@ Un simple Pokedex construido con AngularJS para el curso de AngularJs de Platzi.
 
 [**DEMO**](http://sebathomson.cl/projects/pokedex-angularjs-platzi/)
 
-## TODO
-* [ ] Generar Link a este Repo
-* [ ] Mejorar el manejo de las evoluciones de los pokemons
-
 ### Legal
 
 Pokémon images, names and information (c) 1995-2014 Nintendo/Game freak.
